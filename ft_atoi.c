@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alyap <alyap@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/16 16:01:28 by alyap             #+#    #+#             */
-/*   Updated: 2022/04/16 16:01:30 by alyap            ###   ########.fr       */
+/*   Created: 2022/04/16 15:57:08 by alyap             #+#    #+#             */
+/*   Updated: 2022/04/16 15:57:14 by alyap            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_atoi(const char *str)
 {
-    char x;
-    char *ptr;
+    int output;
+    int sign;
     int i;
 
-    x = (char)c;
-    ptr = 0;
+    output = 0;
+    sign = 1;
     i = 0;
-
-    while (s[i])
-    {
-        if (s[i] == x)
-            ptr = (char *)s + i;
+    while (str[i] && ( (str[i] >= 9 && str[i] <= 13) || str[i] == 32))
         i++;
-    }
-    if (x == '\0')
-        ptr = (char *)s + i;
-    return (ptr);
+    while (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+        i++;
+	}
+    while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	{
+		output *= 10;
+		output += str[i] - '0';
+        i++;
+	}
+    return (output * sign);
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-//     char string[] = "Hello, world!!";
-
-//     char *toPrint = ft_strrchr(string, 108);
-//     printf("%s\n", toPrint);
-// }
