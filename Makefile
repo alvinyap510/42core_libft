@@ -38,11 +38,29 @@ SRCS	=	ft_atoi.c \
 			ft_substr.c \
 			ft_tolower.c \
 			ft_toupper.c \
-			ft_strtrim.c
+			ft_strtrim.c \
+			ft_strmapi.c \
+			ft_itoa.c \
+			ft_striteri.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c \
+			ft_split.c
 
-SRCSB	=	
+SRCSB	=	ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstadd_back.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c
 
 OBJS	=	${SRCS:.c=.o}
+
+OBJSB	=	${SRCSB:.c=.o}
 
 CFLAGS	=	-Wall	-Wextra	-Werror -g3
 
@@ -54,8 +72,11 @@ ${NAME}: ${OBJS}
 
 all:	${NAME}
 
+bonus:	${OBJSB}
+	ar rcs ${NAME} ${OBJSB} 
+
 clean:	
-	rm -f ${OBJS}
+	rm -f ${OBJS} ${OBJSB}
 
 fclean:	clean
 	rm -f ${NAME}

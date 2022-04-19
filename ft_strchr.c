@@ -29,13 +29,3 @@ char *ft_strchr(const char *s, int c)
         return (0);
     return (ptr);
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-//     char string[] = "Hello, world!!";
-
-//     char *toPrint = ft_strchr(string, 119);
-//     printf("%s\n", toPrint);
-// }

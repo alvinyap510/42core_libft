@@ -14,18 +14,9 @@
 
 void *ft_calloc(size_t count, size_t size)
 {
-    char *dst;
-    size_t i;
-
-    if (!(dst = malloc(count * size)))
-        return NULL;
-    i = 0;
-    while (i < count * size)
-    {
-        dst[i] = 0;
-        i++;
-    }
-    return ((void *)dst);
+    void *dst;
+    if (count > 4294967295 || size > 4294967295 || !(dst = malloc(count * size)))
+        return (NULL);
+    ft_bzero(dst, count * size);
+    return (dst);
 }
-
-

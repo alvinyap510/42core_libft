@@ -3,5 +3,6 @@
         "*.ejs": "html",
         "stdio.h": "c",
         "libft.h": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
